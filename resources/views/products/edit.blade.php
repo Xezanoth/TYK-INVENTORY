@@ -18,7 +18,7 @@
 
     <!-- Product Edit Form Card -->
     <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm">
-        <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('products.update', $product) }}" method="POST" class="space-y-6">
             @csrf
             @method('PUT')
 
@@ -47,24 +47,6 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-
-            <div class="space-y-3">
-                <label for="image" class="block text-xs font-bold text-gray-700 uppercase tracking-wider">Product Photo</label>
-                @if($product->image_path)
-                    <div class="flex items-center gap-4">
-                        <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" class="w-20 h-20 object-cover rounded-xl border border-gray-200">
-                        <label class="flex items-center gap-2 text-xs font-medium text-gray-600">
-                            <input type="checkbox" name="remove_image" value="1" class="rounded border-gray-300 text-rose-600 focus:ring-rose-500">
-                            Remove current photo
-                        </label>
-                    </div>
-                @endif
-                <input id="image" type="file" name="image" accept="image/*"
-                       class="w-full text-xs font-medium px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
-                @error('image')
-                    <p class="text-xs text-red-600">{{ $message }}</p>
-                @enderror
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">

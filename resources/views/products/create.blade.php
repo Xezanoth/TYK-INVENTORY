@@ -18,7 +18,7 @@
 
     <!-- Product Form Card -->
     <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm">
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('products.store') }}" method="POST" class="space-y-6">
             @csrf
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -47,15 +47,6 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-
-            <div>
-                <label for="image" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Product Photo</label>
-                <input id="image" type="file" name="image" accept="image/*"
-                       class="w-full text-xs font-medium px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
-                @error('image')
-                    <p class="text-xs text-red-600 mt-2">{{ $message }}</p>
-                @enderror
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">

@@ -1,7 +1,11 @@
 <?php
 
-it('returns a successful response', function () {
+it('redirects the home page to the custom login screen', function () {
     $response = $this->get('/');
 
-    $response->assertStatus(200);
+    $response->assertRedirectToRoute('login');
+
+    $this->get('/login')
+        ->assertOk()
+        ->assertSee('Sign in to your account');
 });
