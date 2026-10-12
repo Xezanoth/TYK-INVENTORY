@@ -68,8 +68,15 @@
                     @forelse($products as $product)
                     <tr class="hover:bg-gray-50/70 transition group">
                         <td class="py-4 px-6">
-                            <div class="font-bold text-gray-900 text-sm">{{ $product->name }}</div>
-                            <div class="text-[11px] font-mono text-gray-400 mt-0.5">SKU: {{ $product->sku }}</div>
+                            <div class="flex items-center gap-3">
+                                @if($product->image_path)
+                                    <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" loading="lazy" class="w-12 h-12 object-cover rounded-lg border border-gray-100">
+                                @endif
+                                <div>
+                                    <div class="font-bold text-gray-900 text-sm">{{ $product->name }}</div>
+                                    <div class="text-[11px] font-mono text-gray-400 mt-0.5">SKU: {{ $product->sku }}</div>
+                                </div>
+                            </div>
                         </td>
                         <td class="py-4 px-6">
                             <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">
